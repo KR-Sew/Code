@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Proxy Switcher</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <main class="wrap">
+    <h1>Proxy Switcher</h1>
+
+    <label>
+      <span>Mode</span>
+      <select id="mode">
+        <option value="system">Use system proxy</option>
+        <option value="fixed">Use fixed proxy</option>
+        <option value="direct">Direct connection</option>
+      </select>
+    </label>
+
+    <label class="fixed-only">
+      <span>Scheme</span>
+      <select id="scheme">
+        <option value="socks5">SOCKS5</option>
+        <option value="socks4">SOCKS4</option>
+        <option value="http">HTTP</option>
+        <option value="https">HTTPS</option>
+      </select>
+    </label>
+
+    <label class="fixed-only">
+      <span>Host</span>
+      <input id="host" type="text" placeholder="127.0.0.1">
+    </label>
+
+    <label class="fixed-only">
+      <span>Port</span>
+      <input id="port" type="number" min="1" max="65535" value="1080">
+    </label>
+
+    <label class="fixed-only">
+      <span>Bypass list</span>
+      <textarea id="bypassList" rows="3" placeholder="localhost,127.0.0.1"></textarea>
+    </label>
+
+    <div class="buttons">
+      <button id="saveApply">Save + Apply</button>
+      <button id="disable" class="secondary">Reset</button>
+    </div>
+
+    <p id="status" aria-live="polite"></p>
+    <p class="note">Example: SOCKS5 127.0.0.1:1080 for SSH dynamic forwarding.</p>
+  </main>
+
+  <script src="popup.js"></script>
+</body>
+</html>
