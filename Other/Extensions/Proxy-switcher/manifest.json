@@ -5,7 +5,9 @@
   "description": "A simple starter extension for switching browser proxy settings.",
   "permissions": [
     "storage",
-    "proxy"
+    "proxy",
+    "webRequest",
+    "webRequestAuthProvider"
   ],
   "host_permissions": [
     "<all_urls>"
