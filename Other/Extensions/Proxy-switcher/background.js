@@ -3,6 +3,8 @@ const DEFAULT_SETTINGS = {
   scheme: "socks5",
   host: "",
   port: 1080,
+  username: "",
+  password: "",
   bypassList: "localhost,127.0.0.1"
 };
 
@@ -103,3 +105,26 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 
   return true;
 });
+chrome.webRequest.onAuthRequired.addListener(
+  async (details) => {
+    const settings = await chrome.storage.local.get(null);
+
+    // Only handle proxy auth (not website auth)
+    if (!details.isProxy) {
+      return {};
+    }
+
+    if (!settings.username || !settings.password) {
+      return {}; // no credentials
+    }
+
+    return {
+      authCredentials: {
+        username: settings.username,
+        password: settings.password
+      }
+    };
+  },
+  { urls: ["<all_urls>"] },
+  ["asyncBlocking"]
+);
