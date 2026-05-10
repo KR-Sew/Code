@@ -75,7 +75,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
     if (message.type === "getSettings") {
       const settings = await getSettings();
       sendResponse({ ok: true, settings });
-      return;
+      return;mt
     }
 
     if (message.type === "saveAndApply") {
