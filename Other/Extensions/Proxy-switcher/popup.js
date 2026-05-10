@@ -14,6 +14,8 @@ function getFormSettings() {
     scheme: $("scheme").value,
     host: $("host").value.trim(),
     port: Number($("port").value),
+    username: $("username").value.trim(),
+    password: $("password").value.trim(),
     bypassList: $("bypassList").value.trim()
   };
 }
@@ -23,6 +25,8 @@ function setFormSettings(settings) {
   $("scheme").value = settings.scheme || "socks5";
   $("host").value = settings.host || "";
   $("port").value = settings.port || 1080;
+  $("username").value = settings.username || "";
+  $("password").value = settings.password || "";
   $("bypassList").value = settings.bypassList || "";
   toggleFixedFields();
 }
