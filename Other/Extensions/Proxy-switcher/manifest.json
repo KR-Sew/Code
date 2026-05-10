@@ -1,0 +1,27 @@
+{
+  "manifest_version": 3,
+  "name": "Proxy Switcher Starter",
+  "version": "1.0.0",
+  "description": "A simple starter extension for switching browser proxy settings.",
+  "permissions": [
+    "storage",
+    "proxy",
+    "webRequest",
+    "webRequestAuthProvider"
+  ],
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Proxy Switcher"
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}
